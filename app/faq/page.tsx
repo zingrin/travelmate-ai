@@ -28,12 +28,12 @@ const faqData = [
   {
     question: "How do I contact support during my trip?",
     answer:
-      "Our dedicated support team is available 24/7 via the live chat in the app, or you can call our international emergency hotline listed in your itinerary.",
+      "Our dedicated support team is available 24/7 via the live chat in the app.",
   },
   {
     question: "Are group discounts available?",
     answer:
-      "Absolutely! For groups of 8 or more, we offer exclusive discounts and personalized group planning services.",
+      "For groups of 8 or more, we offer exclusive discounts and personalized group planning services.",
   },
 ];
 
@@ -41,37 +41,36 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-[1000px] mx-auto px-6">
+    <section className="py-16 bg-white">
+      <div className="max-w-[800px] mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-4xl font-black text-slate-900 mb-4">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-500 text-lg font-medium">
-            Everything you need to know
-          </p>
+          <p className="text-gray-400 text-sm">Everything you need to know</p>
         </div>
 
-        {/* Accordion List */}
-        <div className="space-y-4">
+        {/* Accordion */}
+        <div className="space-y-3">
           {faqData.map((faq, index) => (
             <div
               key={index}
-              className="border border-slate-100 rounded-sm overflow-hidden transition-all duration-300 hover:border-blue-100 shadow-sm"
+              className="border border-slate-100 rounded-xl overflow-hidden shadow-sm"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 md:p-8 text-left bg-white transition-colors"
+                className="w-full flex items-center justify-between px-4 py-4 text-left bg-white"
               >
-                <span className="text-lg md:text-xl font-bold text-slate-800">
+                <span className="text-sm md:text-base font-semibold text-slate-800">
                   {faq.question}
                 </span>
+
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.25 }}
                 >
-                  <HiChevronDown className="text-2xl text-slate-400" />
+                  <HiChevronDown className="text-xl text-slate-400" />
                 </motion.div>
               </button>
 
@@ -81,9 +80,9 @@ const FAQ = () => {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    transition={{ duration: 0.25 }}
                   >
-                    <div className="px-8 pb-8 text-gray-500 text-lg leading-relaxed border-t border-slate-50 pt-4">
+                    <div className="px-4 pb-4 text-gray-500 text-sm leading-relaxed border-t pt-3">
                       {faq.answer}
                     </div>
                   </motion.div>

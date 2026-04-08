@@ -96,7 +96,7 @@ const FeaturedPackages = () => {
           {packages.map((pkg) => (
             <div
               key={pkg.id}
-              className="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100"
+              className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100"
             >
               {/* Image Section */}
               <div className="relative h-72 w-full overflow-hidden">

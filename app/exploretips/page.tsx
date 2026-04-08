@@ -158,8 +158,9 @@ export default function ExploreTipsPage() {
         </h2>
 
         {/* Search & Filter Bar */}
-        <div className="flex flex-col md:flex-row gap-4 mb-12">
-          <div className="relative flex-grow">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 mb-12 flex-wrap">
+          {/* Search Input */}
+          <div className="relative flex-grow min-w-0">
             <HiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl" />
             <input
               type="text"
@@ -170,18 +171,22 @@ export default function ExploreTipsPage() {
             />
           </div>
 
-          <select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            className="bg-white border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-blue-500 shadow-sm font-bold text-slate-700 cursor-pointer"
-          >
-            <option value="All">All Categories</option>
-            <option value="Top Rated">Top Rated</option>
-            <option value="Luxury">Luxury</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Trending">Trending</option>
-          </select>
+          {/* Category Select */}
+          <div className="min-w-[160px]">
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="w-full bg-white border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-blue-500 shadow-sm font-bold text-slate-700 cursor-pointer"
+            >
+              <option value="All">All Categories</option>
+              <option value="Top Rated">Top Rated</option>
+              <option value="Luxury">Luxury</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Trending">Trending</option>
+            </select>
+          </div>
 
+          {/* Filters Button */}
           <button className="flex items-center gap-2 bg-white border border-slate-200 rounded-2xl px-8 py-4 font-bold text-slate-700 hover:bg-slate-100 transition-all shadow-sm">
             <HiOutlineAdjustments className="text-xl" />
             Filters
@@ -189,7 +194,7 @@ export default function ExploreTipsPage() {
         </div>
 
         {/* Trips Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredTrips.map((trip) => (
               <motion.div
@@ -202,7 +207,7 @@ export default function ExploreTipsPage() {
                 className="bg-white rounded-lg overflow-hidden border border-slate-100 shadow-sm group hover:shadow-xl transition-all duration-500"
               >
                 {/* Image Section */}
-                <div className="h-[280px] relative overflow-hidden">
+                <div className="h-[250px] relative overflow-hidden">
                   <Image
                     src={trip.image}
                     alt={trip.title}
@@ -215,7 +220,7 @@ export default function ExploreTipsPage() {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-8">
+                <div className="p-6">
                   <h3 className="text-2xl font-black text-slate-900 mb-2">
                     {trip.title}
                   </h3>
@@ -224,7 +229,7 @@ export default function ExploreTipsPage() {
                     journey in {trip.location}.
                   </p>
 
-                  <div className="flex flex-wrap items-center gap-y-4 gap-x-6 text-slate-400 font-bold text-sm mb-8">
+                  <div className="flex flex-wrap items-center gap-y-4 gap-x-6 text-slate-400 font-bold text-sm mb-6">
                     <div className="flex items-center gap-1.5">
                       <HiOutlineLocationMarker className="text-blue-600 text-lg" />
                       {trip.location}
@@ -243,7 +248,7 @@ export default function ExploreTipsPage() {
                   </div>
 
                   <Link href={`/exploretips/${trip.id}`} className="w-full">
-                    <button className="w-full py-4 border border-slate-200 rounded-2xl font-black text-slate-900 hover:bg-blue-600 hover:text-white transition-all duration-300 cursor-pointer">
+                    <button className="w-full py-3 border border-slate-200 rounded-2xl font-black text-slate-900 hover:bg-orange-600 hover:text-white transition-all duration-300 cursor-pointer">
                       View Details
                     </button>
                   </Link>

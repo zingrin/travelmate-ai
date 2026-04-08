@@ -5,6 +5,8 @@ import Link from "next/link";
 import { FaPlaneDeparture } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { MdOutlineDarkMode } from "react-icons/md";
+import ThemeToggle from "./ThemeToggle";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,14 +24,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo Section */}
-          <div className="flex items-center gap-2">
-            <FaPlaneDeparture className="text-blue-700 text-3xl" />
-            <h1 className="text-2xl font-bold flex items-center">
-              <span className="text-slate-800">Travel</span>
-              <span className="text-blue-700">Mate</span>
-              <span className="text-orange-500 ml-1">AI</span>
-            </h1>
-          </div>
+          <Logo />
 
           {/* Desktop Navigation Links (Laptop/Desktop) */}
           <div className="hidden md:flex items-center space-x-8">
@@ -46,12 +41,15 @@ const Navbar = () => {
 
           {/* Right Side Icons & Button */}
           <div className="hidden md:flex items-center gap-6">
-            <button className="text-gray-600 hover:text-blue-700 transition-all text-2xl">
+            {/* <button className="text-gray-600 hover:text-blue-700 transition-all text-2xl">
               <MdOutlineDarkMode />
-            </button>
-            <button className="bg-blue-700 text-white px-6 py-2.5 rounded-xl font-semibold hover:bg-blue-800 transition-all shadow-md active:scale-95">
-              Explore Now
-            </button>
+            </button> */}
+            <ThemeToggle />
+            <Link href="/exploretips">
+              <button className="bg-blue-700 text-white px-6 py-2.5 rounded-xl font-semibold hover:bg-blue-800 transition-all shadow-md active:scale-95">
+                Explore Now
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -91,9 +89,11 @@ const Navbar = () => {
               </Link>
             ))}
             <hr className="border-gray-100" />
-            <button className="bg-blue-700 text-white w-full py-3 rounded-lg font-bold">
-              Explore Now
-            </button>
+            <Link href="/exploretips">
+              <button className="bg-blue-700 text-white w-full py-3 rounded-lg font-bold cursor-pointer">
+                Explore Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

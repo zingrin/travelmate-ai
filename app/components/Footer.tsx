@@ -1,6 +1,8 @@
 import React from "react";
 import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import { FaPlaneDeparture } from "react-icons/fa";
+import Link from "next/link";
+import Logo from "./Logo";
 
 const Footer = () => {
   return (
@@ -10,10 +12,7 @@ const Footer = () => {
           {/* Logo & About */}
           <div className="space-y-6">
             <div className="flex items-center gap-2">
-              <FaPlaneDeparture className="text-blue-600 text-3xl" />
-              <h2 className="text-2xl font-black text-slate-900">
-                TravelMate <span className="text-orange-500">AI</span>
-              </h2>
+              <Logo />
             </div>
             <p className="text-gray-500 leading-relaxed font-medium">
               Your AI-powered travel companion. Discover, plan, and book
@@ -28,19 +27,19 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4 text-gray-500 font-bold">
               <li className="hover:text-blue-600 cursor-pointer transition-colors">
-                Home
+                <Link href="/">Home</Link>
               </li>
               <li className="hover:text-blue-600 cursor-pointer transition-colors">
-                Explore
+                <Link href="/exploretips">Explore</Link>
               </li>
               <li className="hover:text-blue-600 cursor-pointer transition-colors">
-                About
+                <Link href="/about">About</Link>
               </li>
               <li className="hover:text-blue-600 cursor-pointer transition-colors">
-                Blog
+                <Link href="/blog">Blog</Link>
               </li>
               <li className="hover:text-blue-600 cursor-pointer transition-colors">
-                Contact
+                <Link href="/contact">Contact</Link>
               </li>
             </ul>
           </div>
@@ -50,16 +49,16 @@ const Footer = () => {
             <h4 className="text-lg font-black text-slate-900 mb-6">Support</h4>
             <ul className="space-y-4 text-gray-500 font-bold">
               <li className="hover:text-blue-600 cursor-pointer transition-colors">
-                FAQ
+                <Link href="/faq">FAQ</Link>
               </li>
               <li className="hover:text-blue-600 cursor-pointer transition-colors">
-                Privacy Policy
+                <Link href="/privacy"> Privacy Policy</Link>
               </li>
               <li className="hover:text-blue-600 cursor-pointer transition-colors">
-                Terms of Service
+                <Link href="/terms"> Terms of Service</Link>
               </li>
               <li className="hover:text-blue-600 cursor-pointer transition-colors">
-                Cancellation Policy
+                <Link href="/cancellation"> Cancellation Policy</Link>
               </li>
             </ul>
           </div>

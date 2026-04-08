@@ -194,7 +194,7 @@ export default function TripDetailsPage() {
         </Link>
 
         <div className="flex flex-col md:flex-row gap-4 mb-12">
-          <div className="relative w-full md:w-[65%] h-[450px] rounded-[2rem] overflow-hidden shadow-sm">
+          <div className="relative w-full md:w-[65%] h-[450px] rounded-lg overflow-hidden shadow-sm">
             <Image
               src={trip.images[0]}
               alt="Main"
@@ -202,7 +202,7 @@ export default function TripDetailsPage() {
               className="object-cover"
             />
           </div>
-          <div className="relative w-full md:w-[35%] h-[300px] rounded-[2.5rem] overflow-hidden shadow-sm self-start">
+          <div className="relative w-full md:w-[35%] h-[300px] rounded-lg overflow-hidden shadow-sm self-start">
             <Image
               src={trip.images[1]}
               alt="Side"
@@ -212,7 +212,6 @@ export default function TripDetailsPage() {
           </div>
         </div>
 
-        {/* ৩. Content Section (আপনার স্ক্রিনশট ২ অনুযায়ী) */}
         <div className="max-w-4xl">
           <h1 className="text-[42px] font-black text-slate-900 mb-4 leading-tight">
             {trip.title}
@@ -237,16 +236,16 @@ export default function TripDetailsPage() {
             {trip.description}
           </p>
 
-          {/* ৪. Reviews Box (আপনার স্ক্রিনশট ২ অনুযায়ী) */}
-          <div className="bg-white border border-slate-200 rounded-[2rem] p-8 mb-12 shadow-sm">
+          {/* ৪. Reviews Box  */}
+          <div className="bg-white border border-slate-200 rounded-lg p-8 mb-12 shadow-sm">
             <h3 className="text-2xl font-black text-slate-900 mb-4">Reviews</h3>
             <p className="text-slate-400 font-medium">
               Reviews will be available once you connect Lovable Cloud.
             </p>
           </div>
 
-          {/* ৫. Booking Section (আপনার স্ক্রিনশট ২ অনুযায়ী) */}
-          <div className="bg-white border border-slate-100 rounded-[3rem] p-10 shadow-2xl text-center max-w-2xl mx-auto mb-20">
+          {/* ৫. Booking Section */}
+          <div className="bg-white border border-slate-100 rounded-lg p-6 md:p-8 shadow-xl text-center w-full mb-10">
             <span className="text-slate-400 font-bold text-sm tracking-wide uppercase">
               Starting from
             </span>
@@ -255,7 +254,7 @@ export default function TripDetailsPage() {
             </div>
             <p className="text-slate-400 font-bold mb-8">per person</p>
 
-            <button className="w-full py-5 bg-[#f97316] text-white font-black rounded-[1.5rem] hover:bg-orange-600 transition-all text-2xl shadow-xl shadow-orange-200 cursor-pointer">
+            <button className="w-full py-5 bg-[#f97316] text-white font-black rounded-lg hover:bg-orange-600 transition-all text-2xl shadow-xl shadow-orange-200 cursor-pointer">
               Book Now
             </button>
             <p className="text-slate-400 text-sm font-medium mt-6">
@@ -263,13 +262,13 @@ export default function TripDetailsPage() {
             </p>
           </div>
 
-          {/* ৬. Related Trips (আপনার স্ক্রিনশট ৩ অনুযায়ী) */}
+          {/* ৬. Related Trips */}
           <div className="mt-20">
             <h2 className="text-[38px] font-black text-slate-900 mb-10">
               Related Trips
             </h2>
 
-            <div className="max-w-[420px] bg-white border border-slate-100 rounded-[2.5rem] overflow-hidden shadow-lg group">
+            <div className="max-w-[420px] bg-white border border-slate-100 rounded-lg overflow-hidden shadow-lg group">
               <div className="h-64 relative overflow-hidden">
                 <Image
                   src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800"

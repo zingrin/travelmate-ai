@@ -19,9 +19,7 @@ const Hero = () => {
         style={{
           backgroundImage: `url('https://i.ibb.co.com/tdw2V1g/wooden-bridge-koh-nangyuan-island-surat-thani-thailand.jpg')`,
         }}
-      >
-        <div className="absolute inset-0 bg-black/45"></div>
-      </div>
+      ></div>
 
       {/* Content Container */}
       <div className="relative z-10 max-w-5xl px-4 text-center text-white space-y-6 pt-20">
