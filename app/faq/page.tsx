@@ -41,28 +41,32 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-20 bg-slate-50/50 min-h-screen">
       <div className="max-w-[800px] mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-black text-slate-900 mb-2">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-3 tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-400 text-sm">Everything you need to know</p>
+          <p className="text-slate-500 text-base font-medium">
+            Everything you need to know about your next journey
+          </p>
         </div>
 
         {/* Accordion */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           {faqData.map((faq, index) => (
             <div
               key={index}
-              className="border border-slate-100 rounded-xl overflow-hidden shadow-sm"
+              className="group border border-slate-200/50 rounded-2xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 bg-white"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between px-4 py-4 text-left bg-white"
+                className="w-full flex items-center justify-between px-6 py-5 text-left bg-white transition-colors group-hover:bg-slate-50/50"
               >
-                <span className="text-sm md:text-base font-semibold text-slate-800">
+                <span
+                  className={`text-sm md:text-base font-bold transition-colors ${openIndex === index ? "text-orange-600" : "text-slate-800"}`}
+                >
                   {faq.question}
                 </span>
 
@@ -70,7 +74,9 @@ const FAQ = () => {
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.25 }}
                 >
-                  <HiChevronDown className="text-xl text-slate-400" />
+                  <HiChevronDown
+                    className={`text-2xl ${openIndex === index ? "text-orange-500" : "text-slate-400"}`}
+                  />
                 </motion.div>
               </button>
 
@@ -82,7 +88,7 @@ const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.25 }}
                   >
-                    <div className="px-4 pb-4 text-gray-500 text-sm leading-relaxed border-t pt-3">
+                    <div className="px-6 pb-6 text-slate-500 text-sm md:text-base leading-relaxed border-t border-slate-50 pt-4 bg-slate-50/30">
                       {faq.answer}
                     </div>
                   </motion.div>

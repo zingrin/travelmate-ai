@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Input } from "../ui/Input";
 import { FaEye, FaLock, FaMailBulk, FaUserAstronaut } from "react-icons/fa";
 import { FiEyeOff } from "react-icons/fi";
-import { GiButtonFinger } from "react-icons/gi";
 
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +37,12 @@ export default function RegisterForm() {
         </button>
       </div>
 
-      <GiButtonFinger type="submit">Create Account</GiButtonFinger>
+      <button
+        type="submit"
+        className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold hover:bg-slate-800 transform transition-all active:scale-[0.98] shadow-lg shadow-slate-200 flex items-center justify-center gap-2"
+      >
+        Create Account
+      </button>
     </form>
   );
 }
