@@ -45,7 +45,7 @@ const FAQ = () => {
       <div className="max-w-[800px] mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-3 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3 tracking-tight">
             Frequently Asked Questions
           </h2>
           <p className="text-slate-500 text-base font-medium">
