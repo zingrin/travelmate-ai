@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <section className="relative h-[90vh] md:h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Video Background */}
-      <video
+      {/* <video
         autoPlay
         loop
         muted
@@ -22,7 +22,21 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover scale-105"
       >
         <source
-          src="https://assets.mixkit.co/videos/preview/mixkit-tropical-beach-with-palm-trees-and-blue-water-1111-large.mp4"
+          src="https://pixabay.com/videos/download/video-201308_medium.mp4"
+          type="video/mp4"
+        />
+      </video> */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        controls
+        className="absolute inset-0 w-full h-full object-cover"
+        onError={() => console.log("Video failed to load")}
+      >
+        <source
+          src="https://pixabay.com/videos/download/video-201308_medium.mp4"
           type="video/mp4"
         />
       </video>
