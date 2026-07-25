@@ -52,7 +52,7 @@ const Hero = () => {
         </h1>
 
         {/* Sub-heading */}
-        <p className="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light tracking-wide drop-shadow-md">
+        <p className="text-lg md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed font-light tracking-wide drop-shadow-md">
           Experience AI-crafted journeys designed around your unique wanderlust.
         </p>
 
