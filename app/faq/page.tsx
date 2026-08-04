@@ -48,7 +48,7 @@ const FAQ = () => {
           <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3 tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-slate-500 text-base font-medium">
+          <p className="text-slate-700 text-base font-medium">
             Everything you need to know about your next journey
           </p>
         </div>
