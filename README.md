@@ -125,3 +125,27 @@
 ## Data
 
 All trip/destination data will be realistic (not lorem ipsum) — real destination names, descriptions, and placeholder travel images.
+
+## Backend Folder
+
+A lightweight backend service is available in `backend/`.
+
+- `backend/package.json` for server dependencies
+- `backend/src/server.js` defines API routes
+- `backend/src/data.js` stores FAQ, package, and search data
+
+Run locally:
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+The backend listens on `http://localhost:4000` and supports:
+
+- `GET /api/health`
+- `GET /api/faqs`
+- `GET /api/packages`
+- `GET /api/search?q=...`
+- `POST /api/contact`

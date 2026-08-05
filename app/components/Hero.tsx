@@ -2,13 +2,39 @@
 
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { BACKEND_URL } from "../lib/backend";
 
 const Hero = () => {
   const [searchValue, setSearchValue] = useState("");
+  const [searchResults, setSearchResults] = useState<Array<{ title: string; description: string }>>([]);
+  const [searchError, setSearchError] = useState<string | null>(null);
+  const [isSearching, setIsSearching] = useState(false);
 
-  const handleSearch = (e: React.FormEvent) => {
+  const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchValue) alert(`Searching for: ${searchValue}`);
+    setSearchError(null);
+    setSearchResults([]);
+
+    if (!searchValue.trim()) {
+      setSearchError("Please enter a destination or package name to search.");
+      return;
+    }
+
+    setIsSearching(true);
+    try {
+      const response = await fetch(
+        `${BACKEND_URL}/api/search?q=${encodeURIComponent(searchValue.trim())}`
+      );
+      if (!response.ok) {
+        throw new Error("Unable to fetch search results.");
+      }
+      const data = await response.json();
+      setSearchResults(data.results || []);
+    } catch (error) {
+      setSearchError("Could not load search results. Please try again later.");
+    } finally {
+      setIsSearching(false);
+    }
   };
 
   return (
@@ -74,11 +100,44 @@ const Hero = () => {
 
           <button
             type="submit"
-            className="w-full md:w-auto bg-orange-500 hover:bg-orange-600 text-white px-12 py-4 rounded-xl md:rounded-full font-black text-lg transition-all active:scale-95 shadow-xl whitespace-nowrap uppercase tracking-wider"
+            disabled={isSearching}
+            className="w-full md:w-auto bg-orange-500 hover:bg-orange-600 text-white px-12 py-4 rounded-xl md:rounded-full font-black text-lg transition-all active:scale-95 shadow-xl whitespace-nowrap uppercase tracking-wider disabled:cursor-not-allowed disabled:opacity-60"
           >
-            Search
+            {isSearching ? "Searching..." : "Search"}
           </button>
         </form>
+
+        <div className="mt-8 max-w-3xl mx-auto text-left">
+          {searchError && (
+            <div className="rounded-3xl bg-red-100 border border-red-200 text-red-700 px-6 py-4 mb-4">
+              {searchError}
+            </div>
+          )}
+
+          {searchResults.length > 0 ? (
+            <div className="grid gap-4 sm:grid-cols-2">
+              {searchResults.map((result, index) => (
+                <div
+                  key={index}
+                  className="rounded-3xl border border-white/20 bg-white/90 p-5 shadow-xl backdrop-blur-lg"
+                >
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    {result.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {result.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            !isSearching && searchValue.trim() && (
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5 text-slate-600 shadow-sm">
+                No results found for <span className="font-semibold">{searchValue}</span>. Try a different destination or package.
+              </div>
+            )
+          )}
+        </div>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./providers/ThemeProvider";
+import { AuthProvider } from "./providers/AuthProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,10 +37,11 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <Navbar />
-          <main className="flex-grow pt-20">{children}</main>
-
-          <Footer />
+          <AuthProvider>
+            <Navbar />
+            <main className="flex-grow pt-20">{children}</main>
+            <Footer />
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

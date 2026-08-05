@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiChevronDown } from "react-icons/hi";
 
@@ -48,9 +49,18 @@ const FAQ = () => {
           <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3 tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-slate-700 text-base font-medium">
-            Everything you need to know about your next journey
+          <p className="text-slate-700 text-base font-medium mb-6">
+            Everything you need to know about your next journey.
           </p>
+          <div className="inline-flex items-center gap-3 rounded-full bg-slate-100 px-5 py-3 text-sm text-slate-600 shadow-sm">
+            <span className="text-orange-600 font-bold">Need more help?</span>
+            <Link
+              href="/contact"
+              className="text-blue-700 font-semibold hover:text-blue-900"
+            >
+              Contact our travel team
+            </Link>
+          </div>
         </div>
 
         {/* Accordion */}
